@@ -1455,6 +1455,7 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
         <li><b>Doctor interest forms:</b> the name, credentials, practice, location, email, phone, the Ortho-K brands you fit, and the message you send. The form is delivered by email through Formspree (formspree.io), a form service that also keeps a copy of each form for VIPOK.</li>
         
         <li><b>Technical information:</b> our hosting provider records standard server logs, such as IP address, browser type and pages requested. The site loads fonts from Google Fonts and scripts from cdnjs (Cloudflare), which receive your IP address when your browser requests them. We do not use advertising cookies.</li>
+        <li><b>Analytics, only if you agree:</b> if you choose Accept in the cookie banner, vipok.com uses Google Analytics 4 to count visits and see which pages and forms are used. Google Analytics sets cookies (names starting with <code>_ga</code>) and receives your IP address and browser details; it does not store IP addresses. We keep analytics data for 14 months and do not use Google signals or advertising features. If you choose Decline, or don’t choose, Google Analytics is not loaded. You can change your choice at any time with “Cookie settings” at the bottom of the page.</li>
       </ul>
       <h2>How we use it</h2>
       <p>To answer inquiries; to verify practitioner licenses with the issuing licensing boards and, for US practitioners, the NPPES NPI Registry; to run the doctor portal, certification and orders; to keep the site secure; and to meet legal and regulatory obligations, including medical device reporting.</p>
@@ -1777,6 +1778,8 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
     const target = scrollTarget && document.getElementById(scrollTarget);
     scrollTarget = null;
     if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
+    // vipok.com only: the site build defines vipokAnalytics (GA4, after consent). A no-op here.
+    window.vipokAnalytics?.page(route);
   }
   // Menu links into a part of a page (data-scroll) keep the page's bare
   // #route, so the router and the review pins still see one page.
@@ -2244,6 +2247,7 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
       const res = await fetch(INTEREST_URL, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ ...data, _subject: subject }) });
       const reply = await res.json().catch(() => ({}));
       if (res.ok && reply.ok) {
+        window.vipokAnalytics?.event("generate_lead", { form_id: form.id });
         form.reset();
         say(thanks);
       } else {
@@ -2315,5 +2319,74 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
       });
     })();
   }
+})();
+</script>
+
+<style>
+.consent{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9000;width:min(640px,calc(100% - 32px));
+  display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;padding:1rem 1.1rem;border:1px solid var(--line);
+  border-radius:14px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-size:.92rem}
+.consent p{flex:1 1 260px;margin:0}
+.consent .acts{display:flex;gap:.5rem}
+.consent button{font:inherit;font-weight:600;padding:.5rem 1rem;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.consent button.yes{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.consent button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+@media (max-width:640px){.consent{bottom:8px}.consent .acts{width:100%}.consent button{flex:1}}
+</style>
+<div class="consent" id="consent" role="region" aria-label="Cookie choice" hidden>
+  <p>May vipok.com use Google Analytics cookies to see how the site is used? Nothing is loaded unless you agree. <a href="#privacy">Privacy Policy</a></p>
+  <div class="acts"><button type="button" class="no" id="consent-no">Decline</button><button type="button" class="yes" id="consent-yes">Accept</button></div>
+</div>
+<script>
+(() => {
+  const ID = "G-9QQX349M4F", KEY = "vipok-consent";
+  const get = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
+  const set = v => { try { localStorage.setItem(KEY, v); } catch {} };
+  let loaded = false, route = null;
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  const titleOf = r => (document.querySelector('[data-route="' + r + '"] h1')?.textContent || document.title).trim();
+  const sendPage = () => route && gtag("event", "page_view", {
+    // Sections are #routes; GA4 gets a clean path per section instead of one URL for the whole site.
+    page_location: location.origin + "/" + (route === "home" ? "" : route),
+    page_title: titleOf(route),
+  });
+  const load = () => {
+    if (loaded) return; loaded = true;
+    window["ga-disable-" + ID] = false;
+    gtag("js", new Date());
+    gtag("config", ID, { send_page_view: false });
+    const s = document.createElement("script");
+    s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
+    document.head.append(s);
+    sendPage();
+  };
+  const unload = () => {
+    window["ga-disable-" + ID] = true;
+    const host = location.hostname.replace(/^www\./, "");
+    document.cookie.split(";").map(c => c.split("=")[0].trim()).filter(n => n.startsWith("_ga")).forEach(n => {
+      for (const d of ["", "; domain=" + host, "; domain=." + host])
+        document.cookie = n + "=; Max-Age=0; path=/" + d;
+    });
+  };
+  window.vipokAnalytics = {
+    page(r) { route = r; if (loaded && !window["ga-disable-" + ID]) sendPage(); },
+    event(name, params) { if (loaded && !window["ga-disable-" + ID]) gtag("event", name, params || {}); },
+  };
+  const box = document.getElementById("consent");
+  const choose = v => { set(v); box.hidden = true; v === "granted" ? load() : unload(); };
+  document.getElementById("consent-yes").addEventListener("click", () => choose("granted"));
+  document.getElementById("consent-no").addEventListener("click", () => choose("denied"));
+  // "Cookie settings" in the legal footer reopens the choice.
+  const legal = document.querySelector('.site-foot nav[aria-label="Legal"]');
+  if (legal) {
+    const a = document.createElement("a");
+    a.href = "#consent"; a.textContent = "Cookie settings";
+    a.addEventListener("click", e => { e.preventDefault(); box.hidden = false; document.getElementById("consent-yes").focus(); });
+    legal.append(a);
+  }
+  const prior = get();
+  if (prior === "granted") load(); else if (prior !== "denied") box.hidden = false;
 })();
 </script>
