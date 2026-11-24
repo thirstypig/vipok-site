@@ -358,6 +358,7 @@ a.tile:hover{border-color:var(--brand);color:var(--ink)}
 .tbd{color:var(--muted);font-style:italic}
 .site-foot .foot-legal{grid-template-columns:1fr;padding-top:0;gap:.6rem}
 .site-foot .foot-legal nav{justify-content:flex-start}
+.site-foot .tm-note{margin:0;font-size:.8rem}
 .rx-only{max-width:90ch}
 .callout.warn{border-left-color:#d97706}
 .cite a{font-weight:600}
@@ -844,22 +845,7 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
 </section>
 
 <!-- ============ CASES (doctor portal) ============ -->
-<section class="page" data-route="cases" hidden>
-  <div class="wrap">
-    <header class="page-head">
-      <p class="eyebrow">Doctor portal · Case reports</p>
-      <h1>Case reports from the VIPOK program</h1>
-    </header>
-    <div class="locked" id="cases-lock">
-      <h2>For approved VIPOK doctors</h2>
-      <p>Case reports are available to licensed optometrists and ophthalmologists with an approved VIPOK account.</p>
-      <div class="hero-ctas"><a href="#signin" class="btn btn-primary">Sign in</a><a href="#signup" class="btn btn-ghost">Create an account</a></div>
-    </div>
-    <div id="cases-body">
-
-    </div>
-  </div>
-</section>
+<section class="page" data-route="cases" hidden><div id="cases-lock" hidden></div><div id="cases-body" hidden></div></section>
 
 <!-- ============ SELECTOR ============ -->
 <section class="page" data-route="selector" hidden>
@@ -1058,348 +1044,43 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
 </section>
 
 <!-- ============ ADMIN: research ============ -->
-<section class="page" data-route="admin-research" data-admin hidden>
-  <div class="wrap">
-    <div class="locked admin-only-lock"><h2>VIPOK staff only</h2><p>Switch the mockup to "VIPOK admin" to read the research.</p></div>
-    <div class="admin-only-body">
-      <nav class="admin-tabs" aria-label="Admin"><a href="#admin">Applications</a><a href="#admin-research" aria-current="page">Research</a><a href="#admin-designs">Design options</a><a href="#admin-legal">Legal review</a><a href="#admin-todo">To-do</a></nav>
-      <header class="page-head">
-        <p class="eyebrow">VIPOK admin · Research</p>
-        <h1>Competitor websites</h1>
-        <p class="lede">How Ortho-K and myopia-control lens makers present themselves to doctors and patients, with recommendations for vipok.com. Researched 2026-09-25.</p>
-      </header>
-      
-    </div>
-  </div>
-</section>
+<section class="page" data-route="admin-research" hidden></section>
 
 <!-- ============ ADMIN: design options ============ -->
-<section class="page" data-route="admin-designs" data-admin hidden>
-  <div class="wrap">
-    <div class="locked admin-only-lock"><h2>VIPOK staff only</h2><p>Switch the mockup to "VIPOK admin" to compare design options.</p></div>
-    <div class="admin-only-body">
-      <nav class="admin-tabs" aria-label="Admin"><a href="#admin">Applications</a><a href="#admin-research">Research</a><a href="#admin-designs" aria-current="page">Design options</a><a href="#admin-legal">Legal review</a><a href="#admin-todo">To-do</a></nav>
-      <header class="page-head">
-        <p class="eyebrow">VIPOK admin · Design options</p>
-        <h1>Three directions, one palette</h1>
-        <p class="lede">Same VIPOK blue, lime and navy, and the same content. Each option lays out the home page and the doctor dashboard differently.</p>
-      </header>
-      <div class="callout"><strong>Decision (2026-09-28): Option A, plus C’s audience switch.</strong> A is the only option with every page built, and its top navigation suits a manufacturer site. C’s public lens-selector hero conflicts with keeping the chart behind the doctor login. From C we kept the persistent “Eye care professionals / Patients &amp; parents” switch, now at the top of every page. B and C stay here for reference.</div>
-      <div class="options">
-        <article class="opt">
-          <div class="opt-head"><div><span class="eyebrow">Option A · chosen</span><h2>Scanline heritage</h2></div><a class="btn btn-ghost btn-sm" href="#home">View A</a></div>
-          <p>Full-width blue hero with the old site's scanlines and a lens-zone bullseye, a facts strip, then stacked sections. Top navigation. Closest to a classic manufacturer site.</p>
-        </article>
-        <article class="opt">
-          <div class="opt-head"><div><span class="eyebrow">Option B</span><h2>Clinical editorial</h2></div><button class="btn btn-ghost btn-sm" type="button" data-design="designs/b.html" data-title="Option B · Clinical editorial">Open B full screen</button></div>
-          <p>Fixed left sidebar navigation. Opens with a split chooser for professionals and patients, then an asymmetric editorial layout led by a published-literature card and a spec-sheet table.</p>
-          <iframe class="opt-frame" src="designs/b.html" title="Design option B preview" loading="lazy"></iframe>
-        </article>
-        <article class="opt">
-          <div class="opt-head"><div><span class="eyebrow">Option C</span><h2>Instrument first</h2></div><button class="btn btn-ghost btn-sm" type="button" data-design="designs/c.html" data-title="Option C · Instrument first">Open C full screen</button></div>
-          <p>Deep navy header band with an audience tab switch. The hero is a live lens-selector demo, followed by a modular card grid. Feels like a clinical tool.</p>
-          <iframe class="opt-frame" src="designs/c.html" title="Design option C preview" loading="lazy"></iframe>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="admin-designs" hidden></section>
 
 <!-- ============ ADMIN: to-do ============ -->
-<section class="page" data-route="admin-todo" data-admin hidden>
-  <div class="wrap">
-    <div class="locked admin-only-lock"><h2>VIPOK staff only</h2><p>Switch the mockup to "VIPOK admin" to see the project to-do list.</p></div>
-    <div class="admin-only-body">
-      <nav class="admin-tabs" aria-label="Admin"><a href="#admin">Applications</a><a href="#admin-research">Research</a><a href="#admin-designs">Design options</a><a href="#admin-legal">Legal review</a><a href="#admin-todo" aria-current="page">To-do</a></nav>
-      <header class="page-head">
-        <p class="eyebrow">VIPOK admin · Project</p>
-        <div class="row-head"><h1>Rebuild to-do</h1><span class="pill wait" id="todo-count">Loading</span></div>
-        <p class="lede">Everything open on the vipok.com rebuild. Tick items off and adjust target dates here; changes save for everyone who opens this page.</p>
-        <label class="check"><input type="checkbox" id="todo-hide-done"><span>Hide completed items</span></label>
-      </header>
-      <div id="todo-list" aria-live="polite"><p class="auth-alt">Loading the to-do list…</p></div>
-      <p class="form-status" id="todo-status" hidden></p>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="admin-todo" hidden><span id="todo-count" hidden></span><input id="todo-hide-done" hidden><div id="todo-list" hidden></div><p id="todo-status" hidden></p></section>
 
 <!-- ============ SIGN IN ============ -->
-<section class="page" data-route="signin" hidden>
-  <div class="wrap">
-    <header class="page-head"><p class="eyebrow">Doctor portal</p><h1>Sign in</h1></header>
-    <form class="auth narrow" id="signin-form">
-      <div class="field"><label for="si-email">Email</label><input id="si-email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="si-pass">Password</label><input id="si-pass" type="password" autocomplete="current-password" required></div>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
-        <button class="btn btn-primary" type="submit">Sign in</button>
-        <a href="#signin" id="forgot" style="font-size:.9rem">Forgot password?</a>
-      </div>
-      <p class="form-status" id="signin-status" hidden></p>
-      <p class="auth-alt">New to VIPOK? <a href="#signup">Create an account</a>. The lens chart unlocks after VIPOK approves your application.</p>
-    </form>
-  </div>
-</section>
+<section class="page" data-route="signin" hidden><form id="signin-form" hidden></form><a id="forgot" hidden></a><p id="signin-status" hidden></p></section>
 
 <!-- ============ SIGN UP ============ -->
-<section class="page" data-route="signup" hidden>
-  <div class="wrap">
-    <header class="page-head">
-      <p class="eyebrow">Step 1 of 2 · Create an account</p>
-      <h1>Create a professional account</h1>
-      <p class="lede">For optometrists and ophthalmologists. An account opens the detailed lens specifications, why practices choose VIPOK, and practice materials. Applying to become a VIPOK doctor comes next, from inside your account.</p>
-    </header>
-    <form class="auth" id="signup-form">
-      <fieldset>
-        <legend>Account</legend>
-        <div class="field"><label for="su-first">First name <i>*</i></label><input id="su-first" autocomplete="given-name" required></div>
-        <div class="field"><label for="su-last">Last name <i>*</i></label><input id="su-last" autocomplete="family-name" required></div>
-        <div class="field full"><label for="su-email">Work email <i>*</i></label><input id="su-email" type="email" autocomplete="email" required></div>
-        <div class="field"><label for="su-pass">Password <i>*</i></label><input id="su-pass" type="password" minlength="10" autocomplete="new-password" required></div>
-        <div class="field"><label for="su-pass2">Confirm password <i>*</i></label><input id="su-pass2" type="password" minlength="10" autocomplete="new-password" required></div>
-        <p class="hint">At least 10 characters. We'll email a link to confirm this address.</p>
-        <div class="field"><label for="su-cred">I am a <i>*</i></label>
-          <select id="su-cred" required><option value="">Select</option><option>Optometrist (OD)</option><option>Ophthalmologist (MD / DO)</option><option>Optometrist, licensed outside the US</option><option>Ophthalmologist, licensed outside the US</option></select></div>
-        <div class="field"><label for="su-country">Country <i>*</i></label><input id="su-country" autocomplete="country-name" required></div>
-      </fieldset>
-      <label class="check"><input type="checkbox" id="su-terms" required><span>I confirm I am an eye care practitioner and agree to the <a href="#terms">Terms of Use</a>. VIPOK uses these details as described in the <a href="#privacy">Privacy Policy</a>.</span></label>
-      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><button class="btn btn-primary" type="submit">Create account</button><span class="auth-alt">Already have an account? <a href="#signin">Sign in</a></span></div>
-      <p class="form-status" id="signup-status" hidden></p>
-    </form>
-  </div>
-</section>
+<section class="page" data-route="signup" hidden><form id="signup-form" hidden></form><input id="su-pass" hidden><input id="su-pass2" hidden></section>
 
 <!-- ============ REGISTERED: professional resources ============ -->
-<section class="page" data-route="members" hidden>
-  <div class="wrap">
-    <div class="locked" data-lock="reg"><span class="lv-badge lv-reg">Registered doctors</span><h2>Sign in to see professional resources</h2><p>Detailed specifications, why practices choose VIPOK, and practice materials are for signed-in eye care professionals.</p><div class="hero-ctas"><a href="#signup" class="btn btn-primary">Create an account</a><a href="#signin" class="btn btn-ghost">Sign in</a></div></div>
-    <div data-body="reg">
-      <header class="page-head">
-        <p class="eyebrow">Professional resources</p>
-        <div class="row-head"><h1>Welcome, Dr. Example</h1><span class="pill wait" id="members-pill">Registered · not yet a VIPOK doctor</span></div>
-        <p class="lede">Your account opens the detailed information below. To fit and order VIPOK lenses, apply to become a VIPOK doctor. <span class="example">Example account</span></p>
-      </header>
-      <div class="tiles">
-        <a class="tile" href="#lenses"><h3>Lenses and detailed specifications</h3><p>The full specification table for each lens, package inserts and the fitting guide.</p><span class="go">Open →</span></a>
-        <a class="tile" href="#why"><h3>Why choose VIPOK</h3><p>How the inventory system works in a practice, and what makes it different.</p><span class="go">Read →</span></a>
-        <a class="tile" href="#materials"><h3>Practice and marketing materials</h3><p>Patient brochure, clinic poster and other materials for your practice.</p><span class="go">View →</span></a>
-        <a class="tile" href="#clinical"><h3>Literature</h3><p>The published practitioner report on the VIPOK inventory system.</p><span class="go">Read →</span></a>
-        <a class="tile" href="#apply" id="members-apply"><h3>Apply to become a VIPOK doctor</h3><p>License and practice details. Approval unlocks the lens selector, case reports and ordering.</p><span class="go">Start the application →</span></a>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="members" hidden><span id="members-pill" hidden></span><a id="members-apply" hidden></a></section>
 
 <!-- ============ REGISTERED: why VIPOK ============ -->
-<section class="page" data-route="why" hidden>
-  <div class="wrap">
-    <div class="locked" data-lock="reg"><span class="lv-badge lv-reg">Registered doctors</span><h2>For signed-in eye care professionals</h2><p>Create an account to read how the VIPOK system works in a practice.</p><div class="hero-ctas"><a href="#signup" class="btn btn-primary">Create an account</a><a href="#signin" class="btn btn-ghost">Sign in</a></div></div>
-    <div data-body="reg">
-      <header class="page-head">
-        <p class="eyebrow">Professional resources</p>
-        <h1>Why choose VIPOK</h1>
-        <p class="lede">What the inventory system changes in day-to-day fitting, and how it differs from ordering each lens from a lab.</p>
-      </header>
-      <div class="section" style="padding-top:0">
-        <h2>What makes VIPOK different</h2>
-        <div class="grid-2">
-          <div class="benefit"><h3>A reference chart and an inventory</h3><p>The practitioner selects the lens from a fixed chart and dispenses from stock, instead of sending fitting data to a lab and waiting for a calculated lens.</p></div>
-          <div class="benefit"><h3>Adjustment stays chairside</h3><p>Step up or down one row of the chart to change the fit. Evaluation and adjustment follow one simple method.</p></div>
-          <div class="benefit"><h3>Individually calculated stock</h3><p>Each stock lens is calculated for how corneas change from center to periphery, and for the differences between flat and steep corneas. Selecting from a fixed chart also avoids errors from transferring and recalculating fitting data.</p></div>
-          <div class="benefit"><h3>Genuine lenses, visibly</h3><p>Every lens dispensed by a certified VIPOK doctor is individually shrink-wrapped, so patients can ask to see the original package.</p></div>
-          <div class="benefit"><h3>No enrollment fee</h3><p>There is no fee to join. Start with the full 168-lens inventory set, a 24-lens fitting set, or ordering lens by lens for each case.</p></div>
-          <div class="benefit"><h3>Training with your first purchase</h3><p>Hands-on training comes with your first purchase, with technical support from a team of optometrists, ophthalmologists and lens designers.</p></div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="callout"><strong>More to come.</strong></div>
-      </div>
-      <div class="cta-band">
-        <div><h2>Ready to fit VIPOK?</h2><p>Apply with your license and practice details. VIPOK verifies every license.</p></div>
-        <a href="#apply" class="btn btn-lime">Apply to become a VIPOK doctor</a>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="why" hidden></section>
 
 <!-- ============ REGISTERED: materials ============ -->
-<section class="page" data-route="materials" hidden>
-  <div class="wrap">
-    <div class="locked" data-lock="reg"><span class="lv-badge lv-reg">Registered doctors</span><h2>For signed-in eye care professionals</h2><p>Create an account to see practice and marketing materials.</p><div class="hero-ctas"><a href="#signup" class="btn btn-primary">Create an account</a><a href="#signin" class="btn btn-ghost">Sign in</a></div></div>
-    <div data-body="reg">
-      <header class="page-head">
-        <p class="eyebrow">Professional resources</p>
-        <h1>Practice and marketing materials</h1>
-        <p class="lede">Materials for explaining Ortho-K and VIPOK to patients and parents in your practice.</p>
-      </header>
-      <div class="tiles">
-        <div class="tile soon"><h3>Patient brochure</h3><p>What Ortho-K is, what to expect and the risks, for patients and parents.</p></div>
-        <div class="tile soon"><h3>Clinic and hospital poster</h3><p>For the waiting room or dispensing area.</p></div>
-        <div class="tile soon"><h3>Package inserts</h3><p>Indications, contraindications, warnings and adverse reactions for each lens.</p></div>
-        <div class="tile soon"><h3>Fitting guide</h3><p>Lens selection from the chart, fluorescein evaluation and troubleshooting, as a PDF.</p></div>
-        <div class="tile soon"><h3>VIPOK® logo files</h3><p>For approved VIPOK doctors to use on their own site and signage, under the Practitioner Terms.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="materials" hidden></section>
 
 <!-- ============ REGISTERED: application ============ -->
-<section class="page" data-route="apply" hidden>
-  <div class="wrap">
-    <div class="locked" data-lock="reg"><span class="lv-badge lv-reg">Registered doctors</span><h2>Create an account before you apply</h2><p>The application to become a VIPOK doctor is filled in from inside your professional account.</p><div class="hero-ctas"><a href="#signup" class="btn btn-primary">Create an account</a><a href="#signin" class="btn btn-ghost">Sign in</a></div></div>
-    <div data-body="reg">
-      <header class="page-head">
-        <p class="eyebrow">Step 2 of 2 · Application</p>
-        <h1>Apply to become a VIPOK doctor</h1>
-        <p class="lede">For licensed optometrists and ophthalmologists. We verify every license before approving access to the reference chart, lens selector and ordering.</p>
-      </header>
-      <form class="auth" id="apply-form">
-        <fieldset>
-          <legend>License</legend>
-          <div class="field"><label for="ap-lic">License number <i>*</i></label><input id="ap-lic" required></div>
-          <div class="field"><label for="ap-licstate">Issuing state or country <i>*</i></label><input id="ap-licstate" placeholder="e.g. California, or Taiwan" required></div>
-          <div class="field full"><label for="ap-npi">NPI number</label><input id="ap-npi" inputmode="numeric" pattern="\d{10}" maxlength="10" placeholder="10 digits"></div>
-          <p class="hint">US practitioners: your NPI speeds up verification. Not required outside the US.</p>
-        </fieldset>
-        <fieldset>
-          <legend>Practice</legend>
-          <div class="field full"><label for="ap-practice">Practice name <i>*</i></label><input id="ap-practice" autocomplete="organization" required></div>
-          <div class="field full"><label for="ap-addr">Address <i>*</i></label><input id="ap-addr" autocomplete="address-line1" required></div>
-          <div class="field"><label for="ap-city">City <i>*</i></label><input id="ap-city" autocomplete="address-level2" required></div>
-          <div class="field"><label for="ap-state">State / province</label><input id="ap-state" autocomplete="address-level1"></div>
-          <div class="field"><label for="ap-zip">Postal code</label><input id="ap-zip" autocomplete="postal-code"></div>
-          <div class="field"><label for="ap-phone">Office phone <i>*</i></label><input id="ap-phone" type="tel" autocomplete="tel" required></div>
-        </fieldset>
-        <fieldset>
-          <legend>Your Ortho-K practice</legend>
-          <div class="field"><label for="ap-exp">Ortho-K fitting experience</label>
-            <select id="ap-exp"><option value="">Select</option><option>New to Ortho-K</option><option>Some experience</option><option>Fit Ortho-K regularly</option></select></div>
-          <div class="field"><label for="ap-start">How you would like to start</label>
-            <select id="ap-start"><option value="">Select</option><option>Full inventory set (168 lenses)</option><option>Fitting set (24 lenses)</option><option>Order per case</option><option>Not sure yet</option></select></div>
-          <div class="field full"><label for="ap-notes">Anything else we should know</label><textarea id="ap-notes" rows="3"></textarea></div>
-          <p class="hint">Please don’t include patient names or other patient health information.</p>
-        </fieldset>
-        <label class="check"><input type="checkbox" id="ap-terms" required><span>I confirm I am a licensed eye care practitioner and agree to the <a href="#practitioner-terms">Practitioner Terms</a>. VIPOK uses my license and practice details to verify my eligibility, as described in the <a href="#privacy">Privacy Policy</a>.</span></label>
-        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><button class="btn btn-primary" type="submit">Submit application</button><a href="#members">Back to professional resources</a></div>
-      </form>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="apply" hidden><form id="apply-form" hidden></form></section>
 
 <!-- ============ PENDING ============ -->
-<section class="page" data-route="pending" hidden>
-  <div class="wrap">
-    <header class="page-head">
-      <p class="eyebrow">Doctor portal</p>
-      <h1>Your application is under review</h1>
-      <p class="lede">Thanks for applying. VIPOK verifies your license with the issuing board before unlocking the reference chart. You'll get an email as soon as your account is approved.</p>
-    </header>
-    <ol class="timeline">
-      <li class="done"><span class="dot">✓</span><div><h3>Account created</h3><p>Your work email address is verified.</p></div></li>
-      <li class="done"><span class="dot">✓</span><div><h3>Application submitted</h3><p>License and practice details received.</p></div></li>
-      <li class="now"><span class="dot">3</span><div><h3>License verification</h3><p>A VIPOK team member checks your license and NPI. Typical review time: <em>[to be set by VIPOK]</em>.</p></div></li>
-      <li><span class="dot">4</span><div><h3>Portal access</h3><p>Lens selector, reference chart and fitting guides unlock.</p></div></li>
-      <li><span class="dot">5</span><div><h3>Certification course</h3><p>Complete the online VIPOK course before your first order. <a href="#certify">What's covered</a></p></div></li>
-    </ol>
-    <p class="auth-alt" style="margin-top:1rem"><a href="#members">Back to professional resources</a> · Questions about your application? Email <code class="mono">customer_service@vipok.com</code>.</p>
-  </div>
-</section>
+<section class="page" data-route="pending" hidden></section>
 
 <!-- ============ PORTAL DASHBOARD ============ -->
-<section class="page" data-route="portal" hidden>
-  <div class="wrap">
-    <div class="locked" id="portal-lock">
-      <h2 id="portal-lock-title">Sign in to the doctor portal</h2>
-      <p id="portal-lock-text">The portal is for licensed optometrists and ophthalmologists with an approved VIPOK account.</p>
-      <div class="hero-ctas" id="portal-lock-ctas"><a href="#signin" class="btn btn-primary">Sign in</a><a href="#signup" class="btn btn-ghost">Create an account</a></div>
-    </div>
-    <div id="portal-body">
-      <header class="page-head">
-        <p class="eyebrow">Doctor portal</p>
-        <div class="row-head"><h1>Welcome back, Dr. Example</h1><span class="pill ok">Approved · OD</span></div>
-        <p class="lede">Example Eye Care · License verified. <span class="example">Example account</span></p>
-      </header>
-      <div class="tiles">
-        <a class="tile" href="#selector"><h3>Lens selector</h3><p>Enter K readings and sphere to get the VIPOK II lens code, with the full reference chart.</p><span class="go">Open →</span></a>
-        <a class="tile" href="#cases"><h3>Case reports</h3><p>De-identified before and after topography from VIPOK’s program. Source and consent being confirmed.</p><span class="go">View →</span></a>
-        <a class="tile" href="#system"><h3>Fitting guide</h3><p>Lens zones, fluorescein patterns and the ideal-fit criteria. A downloadable PDF is planned.</p><span class="go">Read →</span></a>
-        <a class="tile" href="#certify"><h3>Certification</h3><p>Online course: 2 of 6 modules complete. Finish it to unlock ordering.</p><span class="go">Continue →</span></a>
-        <a class="tile" href="#orders"><h3>Orders</h3><p>Order lenses by email and see your past orders.</p><span class="go">Order →</span></a>
-        <a class="tile" href="#members"><h3>Professional resources</h3><p>Detailed specifications, why practices choose VIPOK, and practice materials.</p><span class="go">Open →</span></a>
-        <div class="tile"><h3>Your account</h3><p>Dr. Example · Optometrist (OD)<br>License CA-000000 · NPI on file<br>Example Eye Care, Example City</p><span class="example">Example data</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="portal" hidden><div id="portal-lock" hidden></div><h2 id="portal-lock-title" hidden></h2><div id="portal-lock-ctas" hidden></div><div id="portal-body" hidden></div></section>
 
 <!-- ============ ORDERS (phase 2 preview) ============ -->
-<section class="page" data-route="orders" hidden>
-  <div class="wrap">
-    <div class="locked" id="orders-lock">
-      <h2>Sign in to see your orders</h2>
-      <p>Order history is available to approved VIPOK doctors.</p>
-      <div class="hero-ctas"><a href="#signin" class="btn btn-primary">Sign in</a></div>
-    </div>
-    <div id="orders-body">
-      <header class="page-head">
-        <p class="eyebrow">Doctor portal</p>
-        <h1>Orders</h1>
-        <p class="lede">Orders are sent to VIPOK by email, with a copy to you. Identify patients by your own reference number, never by name, to keep patient health information out of the order.</p>
-      </header>
-      <form class="auth" id="order-form" style="margin-bottom:2.5rem">
-        <fieldset>
-          <legend>New order</legend>
-          <div class="field full"><label for="or-ref">Patient reference <i>*</i></label><input id="or-ref" placeholder="e.g. PT-0193" required><small>Your own reference number. Never a patient name.</small></div>
-          <div class="field"><label for="or-od">Right eye (OD) lens code</label><input id="or-od" class="mono" placeholder="from the lens selector"></div>
-          <div class="field"><label for="or-os">Left eye (OS) lens code</label><input id="or-os" class="mono" placeholder="from the lens selector"></div>
-          <div class="field full"><label for="or-notes">Notes for VIPOK</label><textarea id="or-notes" rows="2" placeholder="Supplies, an exchange, or shipping instructions"></textarea></div>
-        </fieldset>
-        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><button class="btn btn-primary" type="submit">Send order by email</button><a href="#selector">Open the lens selector</a></div>
-        <p class="form-status" id="order-status" hidden></p>
-      </form>
-      <div class="row-head" style="margin-bottom:1rem"><h2>Past orders</h2><span class="example">Example data</span></div>
-      <div class="table-wrap">
-        <table class="data">
-          <thead><tr><th>Order</th><th>Placed</th><th>Patient ref.</th><th>Lenses</th><th>Status</th><th></th></tr></thead>
-          <tbody>
-            <tr><td class="mono">VK-10482</td><td class="mono">2026-09-18</td><td class="mono">PT-0193</td><td class="mono">OD 2O06 · OS 2P06</td><td><span class="pill wait">Shipped</span></td><td><button class="btn btn-ghost btn-sm" type="button" disabled>Reorder</button></td></tr>
-            <tr><td class="mono">VK-10455</td><td class="mono">2026-09-02</td><td class="mono">PT-0187</td><td class="mono">OD 2K04 · OS 2K05</td><td><span class="pill ok">Delivered</span></td><td><button class="btn btn-ghost btn-sm" type="button" disabled>Reorder</button></td></tr>
-            <tr><td class="mono">VK-10431</td><td class="mono">2026-08-21</td><td class="mono">—</td><td>168-lens inventory set</td><td><span class="pill ok">Delivered</span></td><td></td></tr>
-            <tr><td class="mono">VK-10420</td><td class="mono">2026-08-14</td><td class="mono">PT-0187</td><td class="mono">OD 2K03 · OS 2K04</td><td><span class="pill no">Exchanged</span></td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="orders" hidden><div id="orders-lock" hidden></div><div id="orders-body" hidden></div><form id="order-form" hidden></form><p id="order-status" hidden></p></section>
 
 <!-- ============ ADMIN: approval queue ============ -->
-<section class="page" data-route="admin" hidden>
-  <div class="wrap">
-    <div class="locked" id="admin-lock">
-      <h2>VIPOK staff only</h2>
-      <p>Switch the mockup to "VIPOK admin" to preview the approval queue.</p>
-    </div>
-    <div id="admin-body">
-      <nav class="admin-tabs" aria-label="Admin"><a href="#admin" aria-current="page">Applications</a><a href="#admin-research">Research</a><a href="#admin-designs">Design options</a><a href="#admin-legal">Legal review</a><a href="#admin-todo">To-do</a></nav>
-      <header class="page-head">
-        <p class="eyebrow">VIPOK admin</p>
-        <div class="row-head"><h1>Doctor applications</h1><span class="pill wait" id="queue-count">3 pending</span></div>
-        <p class="lede">Verify each license with the issuing board, and US NPIs with the <a href="https://npiregistry.cms.hhs.gov/" rel="noopener">NPPES NPI Registry</a>, before approving. Approval unlocks the lens chart and sends the doctor an email.</p>
-        <span class="example">Example applicants</span>
-      </header>
-      <div class="table-wrap">
-        <table class="data" id="queue">
-          <thead><tr><th>Applicant</th><th>Credentials</th><th>License</th><th>NPI</th><th>Practice</th><th>Submitted</th><th>Decision</th></tr></thead>
-          <tbody>
-            <tr><td>Dr. Example A<small>a@example.com</small></td><td>OD</td><td class="mono">CA · 00000<small>California</small></td><td class="mono">1000000001</td><td>Example Optometry<small>San Jose, US</small></td><td class="mono">2026-09-24</td><td class="actions"><button class="btn btn-primary btn-sm" data-decide="approve" type="button">Approve</button><button class="btn btn-danger btn-sm" data-decide="reject" type="button">Reject</button></td></tr>
-            <tr><td>Dr. Example B<small>b@example.com</small></td><td>MD</td><td class="mono">TW · 00000<small>Taiwan</small></td><td class="mono">—<small>non-US</small></td><td>Example Eye Clinic<small>Taipei, TW</small></td><td class="mono">2026-09-23</td><td class="actions"><button class="btn btn-primary btn-sm" data-decide="approve" type="button">Approve</button><button class="btn btn-danger btn-sm" data-decide="reject" type="button">Reject</button></td></tr>
-            <tr><td>Dr. Example C<small>c@example.com</small></td><td>OD</td><td class="mono">MY · 00000<small>Malaysia</small></td><td class="mono">—<small>non-US</small></td><td>Example Vision Centre<small>Kuala Lumpur, MY</small></td><td class="mono">2026-09-22</td><td class="actions"><button class="btn btn-primary btn-sm" data-decide="approve" type="button">Approve</button><button class="btn btn-danger btn-sm" data-decide="reject" type="button">Reject</button></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="page" data-route="admin" hidden><div id="admin-lock" hidden></div><div id="admin-body" hidden></div><span id="queue-count" hidden></span><table id="queue" hidden></table></section>
 
 <!-- ============ LEGAL: safety ============ -->
 <section class="page" data-route="safety" hidden>
@@ -1452,6 +1133,7 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
         
         <li><b>Technical information:</b> our hosting provider records standard server logs, such as IP address, browser type and pages requested. The site loads fonts from Google Fonts and scripts from cdnjs (Cloudflare), which receive your IP address when your browser requests them. We do not use advertising cookies.</li>
         <li><b>Analytics, only if you agree:</b> if you choose Accept in the cookie banner, vipok.com uses Google Analytics 4 to count visits and see which pages and forms are used. Google Analytics sets cookies (names starting with <code>_ga</code>) and receives your IP address and browser details; it does not store IP addresses. We keep analytics data for 14 months and do not use Google signals or advertising features. If you choose Decline, or don’t choose, Google Analytics is not loaded. You can change your choice at any time with “Cookie settings” at the bottom of the page.</li>
+        <li><b>“Do Not Track” signals:</b> the site doesn’t change its behavior for browser “Do Not Track” signals, because it sets no analytics or tracking cookies unless you choose Accept.</li>
       </ul>
       <h2>How we use it</h2>
       <p>To answer inquiries; to verify practitioner licenses with the issuing licensing boards and, for US practitioners, the NPPES NPI Registry; to run the doctor portal, certification and orders; to keep the site secure; and to meet legal and regulatory obligations, including medical device reporting.</p>
@@ -1539,20 +1221,7 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
 </section>
 
 <!-- ============ ADMIN: legal review ============ -->
-<section class="page" data-route="admin-legal" data-admin hidden>
-  <div class="wrap">
-    <div class="locked admin-only-lock"><h2>VIPOK staff only</h2><p>Switch the mockup to "VIPOK admin" to see the legal review.</p></div>
-    <div class="admin-only-body">
-      <nav class="admin-tabs" aria-label="Admin"><a href="#admin">Applications</a><a href="#admin-research">Research</a><a href="#admin-designs">Design options</a><a href="#admin-legal" aria-current="page">Legal review</a><a href="#admin-todo">To-do</a></nav>
-      <header class="page-head">
-        <p class="eyebrow">VIPOK admin · Legal review</p>
-        <h1>Legal and regulatory review</h1>
-        <p class="lede">Red-team review of the site copy on 2026-09-28. Anything that raised a legal flag was changed or removed right away, erring on the safe side. The questions below need VIPOK’s answers before anything removed can come back. This is not legal advice; VIPOK’s counsel should review the final site.</p>
-      </header>
-
-    </div>
-  </div>
-</section>
+<section class="page" data-route="admin-legal" hidden></section>
 
 <!-- ============ DOCTOR INTEREST FORM ============ -->
 <section class="page" data-route="interest" hidden>
@@ -1642,6 +1311,7 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
   </div>
   <div class="wrap foot-legal">
     <p class="rx-only"><b>Rx only.</b> Caution: US federal law restricts this device to sale by or on the order of a licensed practitioner. Ortho-K lenses are medical devices; read the <a href="#safety">Important Safety Information</a> and the package insert.</p>
+    <p class="tm-note">VIPOK® is a registered trademark of VIPOK Inc. Paragon HDS® is a registered trademark of Paragon Vision Sciences.</p>
     <nav aria-label="Legal"><a href="#safety">Important Safety Information</a><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Use</a><a href="#practitioner-terms">Practitioner Terms</a><a href="#accessibility">Accessibility</a></nav>
   </div>
 </footer>
@@ -1839,8 +1509,10 @@ dialog.lightbox::backdrop{background:rgba(6,10,28,.9)}
     pill.className = "pill " + (canSeePortal() ? "ok" : "wait");
     applyTile.hidden = canSeePortal();
     applyTile.setAttribute("href", applied ? "#pending" : "#apply");
-    applyTile.querySelector("h3").textContent = applied ? "Application status" : "Apply to become a VIPOK doctor";
-    applyTile.querySelector(".go").textContent = applied ? "Check status →" : "Start the application →";
+    // vipok.com ships this tile as an empty stub (hidden level), so its children may be missing.
+    const tileH = applyTile.querySelector("h3"), tileGo = applyTile.querySelector(".go");
+    if (tileH) tileH.textContent = applied ? "Application status" : "Apply to become a VIPOK doctor";
+    if (tileGo) tileGo.textContent = applied ? "Check status →" : "Start the application →";
     if (canSeePortal() && typeof calc === "function") requestAnimationFrame(() => calc());
   }
   function setRole(next, route) {
